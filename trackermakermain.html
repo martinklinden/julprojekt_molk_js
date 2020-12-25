@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TrackerMaker3000</title>
+    <style type="text/css">
+      body { background: pink; text-align:center; }
+	  h1 { font-size:60px; }
+	  p { }
+      p:hover { color:white; }
+      p:active { background-color: grey;}
+    </style>
+  </head>
+  <body>
+    <h1>TrackerMaker3000</h1>
+	<hr>
+    <p>Make a tracker</p>
+    <p>HowTo</p>
+    <p onclick="showFunction()">Your trackers:</p>
+    <p id="yourTrackers"></p>
+    <script type="text/javascript">
+      function showFunction() {
+        document.getElementById("yourTrackers").innerHTML = "Tracker01";
+      }
+    </script>
+  </body>
+</html>
