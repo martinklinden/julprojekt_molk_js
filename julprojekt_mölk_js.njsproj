@@ -30,8 +30,19 @@
   <ItemGroup>
     <Content Include="app.js" />
     <Content Include="package.json" />
+    <Content Include="maketracker.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
+    <Content Include="Trackers\Eating.txt" />
+    <Content Include="Trackers\test.txt" />
+    <Content Include="Trackers\tom.txt" />
+    <Content Include="Trackers\Träning.txt" />
     <Content Include="trackermakermain.html" />
+    <Content Include="trackertemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Trackers\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
 </Project>

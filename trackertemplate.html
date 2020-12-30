@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Your Tracker</title>
+		<style type="text/css">
+			body { background: pink;}
+			h1 { text-align:center; }
+			.subtracker h2, .subtracker form {
+				display: inline;
+			}
+			.a { border: 1px solid blue;
+				background-color: lightblue;
+				padding: 10px; }
+			.lowline p { display: inline; }
+		</style>
+	</head>
+	<body>
+		<h1>Title</h1>
+		<hr>
+		<div class="subtracker a">
+			<p>Days/Weeks</p>
+			<h2>Subtitle</h2>
+			<form action="/action_page.php">
+			<input type="checkbox" id="x1" name="x1" value="" checked>
+			<input type="checkbox" id="x2" name="x2" value="">
+			<input type="checkbox" id="x3" name="x3" value="" checked>
+			<input type="checkbox" id="x4" name="x4" value="">
+			</form>
+		</div>
+		<div class="subtracker a">
+			<p>Days/Weeks</p>
+			<h2>Subtitle</h2>
+			<form action="/action_page.php">
+			<input type="checkbox" id="x1" name="x1" value="">
+			<input type="checkbox" id="x2" name="x2" value="">
+			<input type="checkbox" id="x3" name="x3" value="">
+			<input type="checkbox" id="x4" name="x4" value="">
+			</form>
+		</div>
+		<br><br><br>
+		<div class="lowline">
+			<p>Save</p>
+			<p>Edit</p>
+			<p><a href='http://localhost:8080/'>Back</a></p>
+		</div>
+	</body>
+</html>
