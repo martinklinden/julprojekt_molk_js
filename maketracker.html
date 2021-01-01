@@ -1,21 +1,37 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
 <body>
-    <div>
-        <form action="/">
-            <label for="tname">Tracker title</label>
-            <input type="text" id="tname" name="title name" placeholder="Your title...">
-
-            <label for="stitle">Subtitle</label>
-            <input type="text" id="stitle" name="subtitle" placeholder="Your subtitle..">
-
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+    <!--https://stackoverflow.com/questions/18876213/increase-number-of-form-inputs-with-js-or-php/18876739-->
+    <form action="/createtracker">
+        <label for="tname">Tracker title</label>
+        <input type="text" id="tname" name="title" placeholder="Your title..." required><br>
+        <label for="quantity">Number of trackers:</label>
+        <input type="number" id="quantity" name="amountoftrackers" min="1" required>
+        <div id="inputFields">
+            Subtitle 1:<input type='text' name='Subtitle' required/><br />
+        </div>
+        <button type="button" onclick="addQuestion();">New row</button><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        var limit = 1;
+        function addQuestion() {
+            limit++;
+            var theList = document.getElementById("inputFields");
+            var newEl = document.createElement("p");
+            var newText = document.createTextNode("Subtitle " + limit + ":");
+            var newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.name = ("Subtitle");
+            newInput.required = "required";
+            newEl.appendChild(newText);
+            newEl.appendChild(newInput);
+            theList.appendChild(newEl);
+        }
+    </script>
 </body>
 </html>

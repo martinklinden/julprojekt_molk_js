@@ -73,9 +73,11 @@ function showTracker(res, files, query) {
     res.write("     <h1>" + title + "</h1>");
     res.write("     <hr>");
     res.write("		<form action='/savecurrent'>");
+    res.write("     <table>");
     for (i = 0; i < amountofsubs; i++) {
         var currentcheckbox = separatecheckboxes[i];
-        res.write("         <h2>" + separatesubs[i] + "</h2>");
+        res.write("     <tr>");
+        res.write("         <td><h2>" + separatesubs[i] + "</h2></td>");
         for (j = 0; j < amountofcb; j++) {
 
             if (currentcheckbox[j] == "1") {
@@ -84,14 +86,16 @@ function showTracker(res, files, query) {
             else if (currentcheckbox[j] == "0") {
                 var checked = "";
             }   
-            res.write("			<input type='checkbox' id='x" + i + 'y' + j + "' name='x" + i + 'y' + j + "' value='1' " + checked + ">");
+            res.write("			<td><input type='checkbox' id='x" + i + 'y' + j + "' name='x" + i + 'y' + j + "' value='1' " + checked + "></td>");
             res.write("			<input type='hidden' id='x" + i + 'y' + j + "' name='x" + i + 'y' + j + "' value='0' " + ">");
         }
+        res.write("     </tr>");
     }
     res.write("             <input type='hidden' name='title' value='current'>");
     res.write("             <input type='hidden' name='trackerfile' value='" + qdata.trackerfile + "'>");
-    res.write("             <br><input type='submit' value='Submit'>");
-    res.write("			</form>");
+    res.write("             </table>");
+    res.write("             <br><input type='submit' value='Save'>");
+    res.write("	        </form>");
     res.write("    <p onclick='showFunction()'><a href='http://localhost:8080/'>Back to main</a></p")
     res.write("  </body>\n");
     res.write("</html>\n");
@@ -157,7 +161,33 @@ function saveCurrent(res, files, query) {
     res.write("   <p><a href='http://localhost:8080/'>Back to main</a></p")
     res.write("  </body>\n");
     res.write("</html>");
+    return res.end();
+}
+function createTracker(res, query) {
+    var qdata = query;
+    var fusedcheckboxes = "";
+    var allsubs = "";
+    var trackerfilename = qdata.title + ".txt";
+    var i = 0;
+    for (i = 0; i < qdata.amountoftrackers; i++) {
+        fusedcheckboxes += "v*";
+    }
+    for (i = 0; i < qdata.Subtitle.length; i++) {
+        allsubs += qdata.Subtitle[i] + "*";
+    }
+    fs.writeFileSync(path.resolve(__dirname, "./Trackers/", trackerfilename),
+        qdata.title + "#" + qdata.Subtitle.length + "#" + allsubs + "#" + qdata.amountoftrackers + "#" + fusedcheckboxes);
 
+    res.write("<!DOCTYPE html>\n");
+    res.write("<html lang='sv'>\n");
+    res.write("  <head>\n");
+    res.write("  </head>\n");
+    res.write("  <body>\n");
+    res.write("  <h1>Created!</h1>\n");
+    res.write("  <p>Your tracker '" + qdata.title + "' was created!</p>\n");
+    res.write("   <p><a href='http://localhost:8080/'>Back to main</a></p")
+    res.write("  </body>\n");
+    res.write("</html>");
     return res.end();
 }
 
@@ -173,6 +203,9 @@ http.createServer(function (req, res) {
     }
     else if (path == "/makenew") {
         newTracker(res);
+    }
+    else if (path == "/createtracker") {
+        createTracker(res, q.query);
     }
     else if (path == "/current") {
         showTracker(res, files, q.query);
