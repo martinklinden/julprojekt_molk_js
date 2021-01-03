@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <title>TrackerMaker3000</title>
@@ -7,14 +7,13 @@
         body {
             background: #ff9966;
             text-align: center;
+            font-family: "Lucida Console", "Courier New", monospace;
         }
         h1 {
             font-size: 60px;
-            font-family: "Lucida Console", "Courier New", monospace;
         }
         a {
             color: black;
-            font-family: "Lucida Console", "Courier New", monospace;
         }
         a.button {
             border-style: dashed;
@@ -37,20 +36,17 @@
             margin-right: auto;
         }
     </style>
-      <!--p:hover { color:white; }
-      p:active { background-color: grey;}-->
   </head>
   <body>
-      <h1>TrackerMaker3000</h1>
+      <h1>TrackerMaker3000</h1><br><br>
+      <p><strong>TrackerMaker3000</strong> is a tool for making trackers in order to keep track of habits, activities etc.</p><br>
+      <p>Click <strong>Make a tracker</strong> to make a tracker</p>
+      <p>Click <strong>Your trackers</strong> to see your trackers</p>
+      <p>Click <strong>Delete a tracker</strong> to permanently delete one of your trackers</p>
+
       <br>
-      <br>
-      <!--<p><a href="http://localhost:8080/makenew">Make a trackerOLD</a></p>-->
-      <p><a href="http://localhost:8080/howto" class="button">How to make a tracker</a></p>
-      <br>
-      <p><a href="http://localhost:8080/maketracker" class="button">Make a tracker</a></p>
-      <br>
-      <p><a href="http://localhost:8080/show" class="button">Your trackers</a></p>
-      <br>
+      <p><a href="http://localhost:8080/maketracker" class="button">Make a tracker</a></p><br>
+      <p><a href="http://localhost:8080/show" class="button">Your trackers</a></p><br>
       <p><a href="http://localhost:8080/showbeforedel" class="button">Delete a tracker</a></p>
   </body>
 </html>

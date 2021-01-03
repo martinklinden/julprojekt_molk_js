@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Make a tracker</title>
     <style type="text/css">
         body {
             background: #ff9966;
@@ -44,7 +44,7 @@
     <br><br><br>
     <form action="/createtracker">
         <label id="title" for="tname">Tracker title</label>
-        <input type="text" id="tname" name="title" placeholder="Your title..." required><br>
+        <input title="e.g. Training, Eating habits, Cleaning etc." type="text" id="tname" name="title" placeholder="Your title..." required><br>
         <br>
         <label id="date" for="dtype">Date type</label>
         <select id="dtype" name="dateunit" required>
@@ -57,13 +57,12 @@
         <input type="number" id="quantity" name="amountoftrackers" min="1" required>
         <div id="inputFields">
             <br>
-            Subtitle 1:<input type='text' name='Subtitle' placeholder="Your subtitle..." required /><br />
-        </div>
-        <br>
-        <button type="button" onclick="addSubtitle();">Add Subtitle</button><br><br>
-        <input id="sbutton" type="submit" value="Create">
-    </form>
-    <br>
+            Subtitle 1:<input title="Dependent on your title, e.g. Running, Weight-training, Dynamic-training if your title is Training"
+                              type='text' name='Subtitle' placeholder="Your subtitle..." required /><br />
+        </div><br>
+        <button title="Add another subtitle to your tracker" type="button" onclick="addSubtitle();">Add Subtitle</button><br><br>
+        <input title="Create your tracker" id="sbutton" type="submit" value="Create">
+    </form><br>
     <form action="http://localhost:8080/">
         <input id="sbutton2" type="submit" value="Back to menu" />
     </form>
