@@ -3,23 +3,73 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <style type="text/css">
+        body {
+            background: #ff9966;
+            text-align: center;
+        }
+        label, div {
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        input, select {
+            background-color: #ffccb3;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        button, #sbutton, a {
+            border-style: dashed;
+            border-color: black;
+            background-color: #ff7733;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        #sbutton2 {
+            border-style: dashed;
+            border-color: #ff7733;
+            background-color: black;
+            color: #ff7733;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        #title {
+            margin-left: -23px;
+        }
+        #date {
+            margin-left: -88px;
+        }
+        #numberoftrackers {
+            margin-left: -80px;
+        }
+    </style>
 </head>
 <body>
     <!--https://stackoverflow.com/questions/18876213/increase-number-of-form-inputs-with-js-or-php/18876739-->
+    <br><br><br>
     <form action="/createtracker">
-        <label for="tname">Tracker title</label>
+        <label id="title" for="tname">Tracker title</label>
         <input type="text" id="tname" name="title" placeholder="Your title..." required><br>
-        <label for="quantity">Number of trackers:</label>
+        <br>
+        <label id="date" for="dtype">Date type</label>
+        <select id="dtype" name="dateunit" required>
+            <option value="Day">Day</option>
+            <option value="Week">Week</option>
+            <option value="Month">Month</option>
+            <option value="Year">Year</option>
+        </select><br><br>
+        <label id="numberoftrackers" for="quantity">Number of trackers:</label>
         <input type="number" id="quantity" name="amountoftrackers" min="1" required>
         <div id="inputFields">
-            Subtitle 1:<input type='text' name='Subtitle' required/><br />
+            <br>
+            Subtitle 1:<input type='text' name='Subtitle' placeholder="Your subtitle..." required /><br />
         </div>
-        <button type="button" onclick="addQuestion();">New row</button><br><br>
-        <input type="submit" value="Submit">
+        <br>
+        <button type="button" onclick="addSubtitle();">Add Subtitle</button><br><br>
+        <input id="sbutton" type="submit" value="Create">
+    </form>
+    <br>
+    <form action="http://localhost:8080/">
+        <input id="sbutton2" type="submit" value="Back to menu" />
     </form>
     <script>
         var limit = 1;
-        function addQuestion() {
+        function addSubtitle() {
             limit++;
             var theList = document.getElementById("inputFields");
             var newEl = document.createElement("p");
